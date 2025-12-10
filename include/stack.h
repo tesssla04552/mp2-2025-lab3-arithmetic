@@ -22,6 +22,9 @@ public:
 			throw std::invalid_argument("Stack capacity must be positive");
 		}
 		data = new T[capacity];
+		if (data == nullptr) {
+			throw std::bad_alloc();
+		}
 	}
 	void resize(int newCapacity) {
 		T* newData = new T[newCapacity];
